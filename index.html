@@ -1,104 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>₹Paise Planner</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
+</head>
+
+<body>
     <header class="container">
-      <nav>
-        <ul>
-          <li><a href="index.html">Paise Planner</a></li>
-          <li>
-            <a href="convertor.html">Kurrency Konverter</a>
-          </li>
-          <li>
-            <a href="discount-cal.html">Discount Deducer</a>
-          </li>
-          <li>
-            <a href="bill-battwara.html">Bill-Batwara</a>
-          </li>
-        </ul>
-      </nav>
-      <hgroup>
-        <h1>₹Paise Planner</h1>
-        <p>plan your savings better</p>
-      </hgroup>
+        <nav>
+            <ul>
+                <li><a href="index.html">Paise Planner</a></li>
+                <li>
+                    <a href="convertor.html">Kurrency Konverter</a>
+                </li>
+                <li>
+                    <a href="discount-cal.html">Discount Deducer</a>
+                </li>
+                <li>
+                    <a href="bill-battwara.html">Bill-Batwara</a>
+                </li>
+            </ul>
+        </nav>
+        <hgroup>
+            <h1>₹Paise Planner</h1>
+            <p>plan your savings better</p>
+        </hgroup>
     </header>
     <main class="container">
-      <section>
-        <p>
-          Set your total goal, timeline and current savings to see how much you
-          need to save each month.
-        </p>
-        <div>
-          <input
-            type="number"
-            id="total"
-            placeholder="Total goal amount"
-            required
-          />
+        <section>
+            <p>
+                Set your total goal, timeline and current savings to see how much you
+                need to save each month.
+            </p>
+            <div>
+                <input type="number" id="total" placeholder="Total goal amount" required />
 
-          <input
-            type="number"
-            id="months"
-            placeholder="Number of months"
-            required
-          />
+                <input type="number" id="months" placeholder="Number of months" required />
 
-          <input
-            type="number"
-            id="current"
-            placeholder="Currently saved"
-            required
-          />
-
-          <button id="calculateBtn" type="button">
-            How much do I need to save per month
-          </button>
-        </div>
-      </section>
-      <section>
-        <p id="result"></p>
-      </section>
+                <input type="number" id="current" placeholder="Currently saved" required />
+                <button id="calculateBtn" type="button">
+                    How much do I need to save per month
+                </button>
+            </div>
+        </section>
+        <section>
+            <p id="result"></p>
+        </section>
     </main>
     <footer class="container neog-footer">
-      <small>
-        go from zero to hero at full stack development with
-      </small>
+        <small>
+            <a href="https://www.linkedin.com/in/sushant-kumar-singh-414782230" target="_blank">
+                <i class="fab fa-linkedin"></i> Connect on LinkedIn
+            </a>
+        </small>
     </footer>
 
     <script>
-      function calculateRequiredSaving(total, month, current) {
-        const remaining = total - current;
-        const requiredSavingPerMonth = remaining / month;
-        return requiredSavingPerMonth;
-      }
+        function calculateRequiredSaving(total, month, current) {
+            const remaining = total - current;
+            const requiredSavingPerMonth = remaining / month;
+            return requiredSavingPerMonth;
+        }
 
-      function handleButtonClick() {
-        const totalInputElement = document.getElementById("total");
-        const monthInputElement = document.getElementById("months");
-        const currentInputElement = document.getElementById("current");
-        const resultElement = document.getElementById("result");
+        function handleButtonClick() {
+            const totalInputElement = document.getElementById("total");
+            const monthInputElement = document.getElementById("months");
+            const currentInputElement = document.getElementById("current");
+            const resultElement = document.getElementById("result");
 
-        const total = totalInputElement.value;
-        const month = monthInputElement.value;
-        const current = currentInputElement.value;
-        const requiredSaving = calculateRequiredSaving(total, month, current);
+            const total = totalInputElement.value;
+            const month = monthInputElement.value;
+            const current = currentInputElement.value;
+            const requiredSaving = calculateRequiredSaving(total, month, current);
 
-        resultElement.innerText =
-          "You need to save Rs. " + requiredSaving + "per month.";
-      }
+            resultElement.innerText =
+                "You need to save Rs. " + requiredSaving + "per month.";
+        }
 
-      const calculateBtn = document.getElementById("calculateBtn");
+        const calculateBtn = document.getElementById("calculateBtn");
 
-      calculateBtn.addEventListener("click", handleButtonClick);
+        calculateBtn.addEventListener("click", handleButtonClick);
     </script>
-  </body>
+</body>
+
 </html>

@@ -1,106 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Discount Deducer</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
+</head>
+
+<body>
     <header class="container">
-      <nav>
-        <ul>
-          <li><a href="index.html">Paise Planner</a></li>
-          <li>
-            <a href="convertor.html">Kurrency Konverter</a>
-          </li>
-          <li>
-            <a href="discount-cal.html">Discount Deducer</a>
-          </li>
-          <li>
-            <a href="bill-battwara.html">Bill-Batwara</a>
-          </li>
-        </ul>
-      </nav>
-      <hgroup>
-        <h1>Discount Deducer</h1>
-        <p>Let's see how much you saved</p>
-      </hgroup>
+        <nav>
+            <ul>
+                <li><a href="index.html">Paise Planner</a></li>
+                <li>
+                    <a href="convertor.html">Kurrency Konverter</a>
+                </li>
+                <li>
+                    <a href="discount-cal.html">Discount Deducer</a>
+                </li>
+                <li>
+                    <a href="bill-battwara.html">Bill-Batwara</a>
+                </li>
+            </ul>
+        </nav>
+        <hgroup>
+            <h1>Discount Deducer</h1>
+            <p>Let's see how much you saved</p>
+        </hgroup>
     </header>
     <main class="container">
-      <section>
-        <p>
-          Enter the total amount and discount percentage to see that the final
-          price and the amount saved!
-        </p>
-        <div class="grid">
-          <input
-            type="number"
-            placeholder="Enter total amount"
-            id="total-amount"
-            required
-          />
-          <input
-            type="number"
-            placeholder="Enter discount percentage"
-            id="discount-percentage"
-            required
-          />
-          <button type="submit" id="Btn-CalculteDiscount">
-            Calculate Discount
-          </button>
-        </div>
-      </section>
-      <section>
-        <p id="result"></p>
-      </section>
+        <section>
+            <p>
+                Enter the total amount and discount percentage to see that the final
+                price and the amount saved!
+            </p>
+            <div class="grid">
+                <input type="number" placeholder="Enter total amount" id="total-amount" required />
+                <input type="number" placeholder="Enter discount percentage" id="discount-percentage" required />
+                <button type="submit" id="Btn-CalculteDiscount">
+                    Calculate Discount
+                </button>
+            </div>
+        </section>
+        <section>
+            <p id="result"></p>
+        </section>
     </main>
     <footer class="container neog-footer">
-      <small>
-        go from zero to hero at full stack development with
-      </small>
+        <small>
+            <a href="https://www.linkedin.com/in/sushant-kumar-singh-414782230" target="_blank">
+                <i class="fab fa-linkedin"></i> Connect on LinkedIn
+            </a>
+        </small>
     </footer>
 
     <script>
-      function findRequirePriceAndDiscount(amount, percentage) {
-        const savedAmount = (amount * percentage) / 100;
-        const finalPrice = amount - savedAmount;
-        return {
-          savedAmount,
-          finalPrice,
-        };
-      }
+        function findRequirePriceAndDiscount(amount, percentage) {
+            const savedAmount = (amount * percentage) / 100;
+            const finalPrice = amount - savedAmount;
+            return {
+                savedAmount,
+                finalPrice,
+            };
+        }
 
-      function handleDiscount() {
-        const amountElement = document.getElementById("total-amount");
-        const percentageElement = document.getElementById(
-          "discount-percentage"
-        );
-        const resultElement = document.getElementById("result");
+        function handleDiscount() {
+            const amountElement = document.getElementById("total-amount");
+            const percentageElement = document.getElementById(
+                "discount-percentage"
+            );
+            const resultElement = document.getElementById("result");
 
-        const amount = amountElement.value;
-        const percentage = percentageElement.value;
+            const amount = amountElement.value;
+            const percentage = percentageElement.value;
 
-        const requiredDiscountAndprice = findRequirePriceAndDiscount(
-          amount,
-          percentage
-        );
+            const requiredDiscountAndprice = findRequirePriceAndDiscount(
+                amount,
+                percentage
+            );
 
-        const { savedAmount, finalPrice } = requiredDiscountAndprice;
-        resultElement.innerText =
-          "Your total discount is " +
-          savedAmount.toFixed(2) +
-          " Rs, and final price is " +
-          finalPrice.toFixed(2) +
-          " Rs.";
-      }
+            const { savedAmount, finalPrice } = requiredDiscountAndprice;
+            resultElement.innerText =
+                "Your total discount is " +
+                savedAmount.toFixed(2) +
+                " Rs, and final price is " +
+                finalPrice.toFixed(2) +
+                " Rs.";
+        }
 
-      const buttonElement = document.getElementById("Btn-CalculteDiscount");
-      buttonElement.addEventListener("click", handleDiscount);
+        const buttonElement = document.getElementById("Btn-CalculteDiscount");
+        buttonElement.addEventListener("click", handleDiscount);
     </script>
-  </body>
+</body>
+
 </html>

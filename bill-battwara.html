@@ -1,83 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Bill-Batwara</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
+</head>
+
+<body>
     <header class="container">
-      <nav>
-        <ul>
-          <li>
-            <a href="index.html">Paise Planner</a>
-          </li>
-          <li>
-            <a href="convertor.html">Kurrency Konverter</a>
-          </li>
-          <li>
-            <a href="discount-cal.html">Discount Deducer</a>
-          </li>
-          <li>
-            <a href="bill-battwara.html">Bill-Batwara</a>
-          </li>
-        </ul>
-      </nav>
-      <hgroup>
-        <h1>Bill-Batwara</h1>
-        <p>bill baaton nafrat nahi</p>
-      </hgroup>
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html">Paise Planner</a>
+                </li>
+                <li>
+                    <a href="convertor.html">Kurrency Konverter</a>
+                </li>
+                <li>
+                    <a href="discount-cal.html">Discount Deducer</a>
+                </li>
+                <li>
+                    <a href="bill-battwara.html">Bill-Batwara</a>
+                </li>
+            </ul>
+        </nav>
+        <hgroup>
+            <h1>Bill-Batwara</h1>
+            <p>bill baaton nafrat nahi</p>
+        </hgroup>
     </header>
     <main class="container">
-      <section>
-        <p>Just out of party and everyone needs to pay, but how much?</p>
+        <section>
+            <p>Just out of party and everyone needs to pay, but how much?</p>
 
-        <div class="grid">
-          <input
-            type="number"
-            id="bill-money"
-            placeholder="Enter total amount"
-          />
-          <input
-            type="number"
-            id="total-people"
-            placeholder="Enter total number of person"
-          />
-          <button type="submit" id="btn-split">Split the Bill</button>
-        </div>
-      </section>
-      <section>
-        <p id="result"></p>
-      </section>
+            <div class="grid">
+                <input type="number" id="bill-money" placeholder="Enter total amount" />
+                <input type="number" id="total-people" placeholder="Enter total number of person" />
+                <button type="submit" id="btn-split">Split the Bill</button>
+            </div>
+        </section>
+        <section>
+            <p id="result"></p>
+        </section>
     </main>
     <footer class="container neog-footer">
-      <small>
-        go from zero to hero at full stack development with
-      </small>
+        <small>
+            <a href="https://www.linkedin.com/in/sushant-kumar-singh-414782230" target="_blank">
+                <i class="fab fa-linkedin"></i> Connect on LinkedIn
+            </a>
+        </small>
     </footer>
 
     <script>
-      function generateSplitBill(amount, person) {
-        const billPerPerson = amount / person;
-        return billPerPerson.toFixed(2);
-      }
+        function generateSplitBill(amount, person) {
+            const billPerPerson = amount / person;
+            return billPerPerson.toFixed(2);
+        }
 
-      function handleTheBill() {
-        const amountElement = document.getElementById("bill-money").value;
-        const totalPerson = document.getElementById("total-people").value;
-        const result = document.getElementById("result");
-        const totalBill = generateSplitBill(amountElement, totalPerson);
+        function handleTheBill() {
+            const amountElement = document.getElementById("bill-money").value;
+            const totalPerson = document.getElementById("total-people").value;
+            const result = document.getElementById("result");
+            const totalBill = generateSplitBill(amountElement, totalPerson);
 
-        result.innerText = "Bill pay by Each Person should be " + totalBill;
-      }
+            result.innerText = "Bill pay by Each Person should be " + totalBill;
+        }
 
-      const buttonElement = document.getElementById("btn-split");
-      buttonElement.addEventListener("click", handleTheBill);
+        const buttonElement = document.getElementById("btn-split");
+        buttonElement.addEventListener("click", handleTheBill);
     </script>
-  </body>
+</body>
+
 </html>
