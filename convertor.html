@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kurrency Konverter</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <header class="container">
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html">Paise Planner</a>
+                </li>
+                <li>
+                    <a href="convertor.html">Kurrency Konverter</a>
+                </li>
+                <li>
+                    <a href="discount-cal.html">Discount Deducer</a>
+                </li>
+                <li>
+                    <a href="bill-battwara.html">Bill-Batwara</a>
+                </li>
+            </ul>
+        </nav>
+        <hgroup>
+            <h1>Kurrency Konverter</h1>
+            <p>convert from USD to INR</p>
+        </hgroup>
+    </header>
+    <main class="container">
+        <section>
+            <div>
+                <input type="number" placeholder="Enter amount in USD" id="usdAmount" />
+                <input type="number" placeholder="Enter the rate of USD conversion" id="usdConversion" />
+                <button type="submit" id="convertBtn">Convert to INR</button>
+            </div>
+        </section>
+        <section>
+            <p id="result"></p>
+        </section>
+    </main>
+    <footer class="container neog-footer">
+        <small>
+            go from zero to hero at full stack development with
+        </small>
+    </footer>
+
+    <script>
+        function convertUsdToinr(usdAmount, conversionAmount) {
+            const inr = usdAmount * conversionAmount
+            return inr.toFixed(2);
+        }
+
+        function handleToConvert() {
+            const usdInputElement = document.getElementById("usdAmount");
+            const usdConversion = document.getElementById("usdConversion");
+            const resultElement = document.getElementById("result");
+            const usdValue = usdInputElement.value;
+            const usdConversionValue = usdConversion.value;
+            const inrValue = convertUsdToinr(usdValue, usdConversionValue );
+
+            resultElement.innerText =
+                usdValue + " USD equals INR " + inrValue + ".";
+        }
+
+        const buttonElement = document.getElementById("convertBtn");
+
+        buttonElement.addEventListener("click", handleToConvert);
+    </script>
+</body>
+
+</html>

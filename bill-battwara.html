@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bill-Batwara</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="container">
+      <nav>
+        <ul>
+          <li>
+            <a href="index.html">Paise Planner</a>
+          </li>
+          <li>
+            <a href="convertor.html">Kurrency Konverter</a>
+          </li>
+          <li>
+            <a href="discount-cal.html">Discount Deducer</a>
+          </li>
+          <li>
+            <a href="bill-battwara.html">Bill-Batwara</a>
+          </li>
+        </ul>
+      </nav>
+      <hgroup>
+        <h1>Bill-Batwara</h1>
+        <p>bill baaton nafrat nahi</p>
+      </hgroup>
+    </header>
+    <main class="container">
+      <section>
+        <p>Just out of party and everyone needs to pay, but how much?</p>
+
+        <div class="grid">
+          <input
+            type="number"
+            id="bill-money"
+            placeholder="Enter total amount"
+          />
+          <input
+            type="number"
+            id="total-people"
+            placeholder="Enter total number of person"
+          />
+          <button type="submit" id="btn-split">Split the Bill</button>
+        </div>
+      </section>
+      <section>
+        <p id="result"></p>
+      </section>
+    </main>
+    <footer class="container neog-footer">
+      <small>
+        go from zero to hero at full stack development with
+      </small>
+    </footer>
+
+    <script>
+      function generateSplitBill(amount, person) {
+        const billPerPerson = amount / person;
+        return billPerPerson.toFixed(2);
+      }
+
+      function handleTheBill() {
+        const amountElement = document.getElementById("bill-money").value;
+        const totalPerson = document.getElementById("total-people").value;
+        const result = document.getElementById("result");
+        const totalBill = generateSplitBill(amountElement, totalPerson);
+
+        result.innerText = "Bill pay by Each Person should be " + totalBill;
+      }
+
+      const buttonElement = document.getElementById("btn-split");
+      buttonElement.addEventListener("click", handleTheBill);
+    </script>
+  </body>
+</html>
